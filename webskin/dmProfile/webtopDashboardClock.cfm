@@ -1,4 +1,4 @@
-<cfsetting enablecfoutputonly="true">
+<cfsetting enablecfoutputonly="true" />
 <!--- @@displayname: Dashboard Clock --->
 <!--- @@viewstack: fragment --->
 <!--- @@viewbinding: type --->
@@ -11,6 +11,9 @@
 <cfset utcDateTime = dateFormat(utcNow, "yyyy-mm-dd") & " " & timeFormat(utcNow, "hh:mm:ss") & " +0000">
 
 <!--- TODO: switch between server/user date time --->
+
+<cfset timeOutput = lsTimeFormat(now(), "short") />
+<cfset timeOutput = reReplace(timeOutput, '(AM|PM)', '<small style="font-size: 40%;">\1</small>') />
 
 <cfoutput>
 
@@ -46,4 +49,5 @@
 
 </cfoutput>
 
-<cfsetting enablecfoutputonly="false">
+
+<cfsetting enablecfoutputonly="false" />
